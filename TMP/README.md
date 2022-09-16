@@ -1,1 +1,1 @@
-<h1>The tools of a modern programmer</h1>
+<h1><s>Not temporary files!</s> The tools of a modern programmer</h1>

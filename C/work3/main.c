@@ -83,7 +83,42 @@ void task3() {
 
 /* END TASK 3 */
 
+// ----------------------------------------------------------------------------------
+
+/* GROUP №04 */
+
+/* START TASK 0 */
+
+void swap(int* a, int* b) {
+    int c = *a;
+    *a = *b;
+    *b = c;
+}
+
+void task00() {
+    int a = 10, b = 20;
+    printf("%d, %d\n", a, b);
+    swap(&a, &b);
+    printf("%d, %d\n", a, b);
+}
+
+/* END TASK 0 */
+
+/* START TASK 1 */
+
+void foo() {
+    int a = 12;
+    printf("%d\n", &a);
+}
+
+void task01() {
+    foo();
+    foo();
+}
+
+/* END TASK 1 */
+
 int main() {
-    task3();
+    task01();
     return 0;
 }

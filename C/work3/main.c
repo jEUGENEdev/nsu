@@ -60,7 +60,30 @@ void task2() {
 
 /* END TASK 2 */
 
+/* START TASK 3 */
+
+int max(int x1, int x2, int x3, int x4, int x5, int x6, int x7, int x8, int x9, int x10) {
+    int x0 = 0;
+    if(x1 > x0) x0 = x1;
+    if(x2 > x0) x0 = x2;
+    if(x3 > x0) x0 = x3;
+    if(x4 > x0) x0 = x4;
+    if(x5 > x0) x0 = x5;
+    if(x6 > x0) x0 = x6;
+    if(x7 > x0) x0 = x7;
+    if(x8 > x0) x0 = x8;
+    if(x9 > x0) x0 = x9;
+    if(x10 > x0) x0 = x10;
+    return x0;
+}
+
+void task3() {
+    printf("%d", max(10, 4, 5, 7, 4, 22, 64, 43, 75, 23));
+}
+
+/* END TASK 3 */
+
 int main() {
-    task2();
+    task3();
     return 0;
 }

@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <assert.h>
 #include <math.h>
 
@@ -118,7 +117,30 @@ void task01() {
 
 /* END TASK 1 */
 
+/* START TASK 2 */
+
+void evilScanf(int* p0, int* p1, int* p2) {
+    int n0, n1, n2, p00 = *p0;
+    scanf("%d%d%d", &n0, &n1, &n2);
+    *p0 = n0;
+    if(n0 > 0) {
+        *p1 = n1;
+        *p2 = n2;
+    }
+    else {
+        *p1 = p00;
+        *p2 = n0 * n1 * n2 * *p1 * *p2;
+    }
+}
+
+void task02() {
+    int a = 4, b = 8, c = 12;
+    evilScanf(&a, &b, &c);
+    printf("%d, %d, %d", a, b, c);
+}
+
+/* END TASK 2 */
+
 int main() {
-    task01();
     return 0;
 }

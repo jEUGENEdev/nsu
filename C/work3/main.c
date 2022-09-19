@@ -15,6 +15,8 @@ char isPrime(unsigned long long x) {
 int main() {
     unsigned long long N;
     scanf("%lld", &N);
-    printf("is prime: %d\n", isPrime(N));
+    for(unsigned long long i = 2; i <= N; i++)
+        if(isPrime(i))
+            printf("%lld", N);
     return 0;
 }

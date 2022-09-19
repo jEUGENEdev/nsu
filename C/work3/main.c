@@ -41,7 +41,26 @@ void task1() {
 
 /* END TASK 1 */
 
+/* START TASK 2 */
+
+int NOD(int x, int y) {
+    assert(x > 0 && y > 0);
+    while(x != y) {
+        if(x > y)
+            x -= y;
+        else
+            y -= x;
+    }
+    return y;
+}
+
+void task2() {
+    printf("%d", NOD(37, 74));
+}
+
+/* END TASK 2 */
+
 int main() {
-    task1();
+    task2();
     return 0;
 }

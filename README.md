@@ -8,6 +8,7 @@
   <li>Python</li>
   <li>Java</li>
   <li>Haskel</li>
+  <li>Shell</li>
   <li>Maybe something else, but I don't really know</li>
 </ul>
 <hr>

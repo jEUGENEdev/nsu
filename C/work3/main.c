@@ -106,13 +106,17 @@ void task00() {
 /* START TASK 1 */
 
 void foo() {
-    int a = 12;
+    int a;
     printf("%d\n", &a);
+}
+
+void bar() {
+    foo();
 }
 
 void task01() {
     foo();
-    foo();
+    bar();
 }
 
 /* END TASK 1 */

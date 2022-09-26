@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <inttypes.h>
 
 void scanArr(int* arr, size_t arrSize) {
     for(size_t i = 0; i < arrSize; i++) {
@@ -22,6 +23,13 @@ void revertArr(int* arr, size_t arrSize) {
 }
 
 void maxInArr(int* arr, size_t arrSize) {
+    int a = INT32_MIN;
+    for(int i = 0; i < arrSize; i++) {
+        if(arr[i] > a) {
+            a = arr[i];
+        }
+    }
+    printf("%d\n", a);
 }
 
 int main() {
@@ -31,5 +39,6 @@ int main() {
     printArr(array, arrLen);
     revertArr(array, arrLen);
     printArr(array, arrLen);
+    maxInArr(array, arrLen);
     return 0;
 }

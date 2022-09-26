@@ -32,13 +32,23 @@ void maxInArr(int* arr, size_t arrSize) {
     printf("%d\n", a);
 }
 
+int findInArr(int* arr, size_t arrSize, int x) {
+    for(size_t i = 0; i < arrSize; i++) {
+        if(arr[i] == i) {
+            return (int) i;
+        }
+    }
+    return -1;
+}
+
 int main() {
-    size_t arrLen = 5;
+    size_t arrLen = 4;
     int array[arrLen];
     scanArr(array, arrLen);
     printArr(array, arrLen);
     revertArr(array, arrLen);
     printArr(array, arrLen);
     maxInArr(array, arrLen);
+    printf("%d\n", findInArr(array, arrLen, 5));
     return 0;
 }

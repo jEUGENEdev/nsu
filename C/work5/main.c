@@ -57,10 +57,6 @@ void extractDigits(int* arr, size_t arrSize, int x) {
     printArr(cp, arrSize);
 }
 
-int min(int a, int b) {
-    return a >= b ? a : b;
-}
-
 int compareArrays(int* arr1, int* arr2, size_t size1, size_t size2) {
     if(size1 < size2) return -1;
     else if(size1 > size2) return 1;

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <inttypes.h>
+#include <stdlib.h>
 
 void scanArr(int* arr, size_t arrSize) {
     for(size_t i = 0; i < arrSize; i++) {
@@ -34,21 +35,56 @@ void maxInArr(int* arr, size_t arrSize) {
 
 int findInArr(int* arr, size_t arrSize, int x) {
     for(size_t i = 0; i < arrSize; i++) {
-        if(arr[i] == i) {
+        if(arr[i] == x) {
             return (int) i;
         }
     }
     return -1;
 }
 
+void extractDigits(int* arr, size_t arrSize, int x) {
+    int cp[arrSize];
+    for(size_t i = 0; i < arrSize; i++) {
+        cp[i] = arr[i];
+    }
+    int i = 0;
+    while(x != 0) {
+        cp[i] = x % 10;
+        x /= 10;
+        i++;
+    }
+    revertArr(cp, arrSize);
+    printArr(cp, arrSize);
+}
+
+int min(int a, int b) {
+    return a >= b ? a : b;
+}
+
+int compareArrays(int* arr1, int* arr2, size_t size1, size_t size2) {
+    if(size1 < size2) return -1;
+    else if(size1 > size2) return 1;
+    for(size_t i = 0; i < size1; i++) {
+        if(arr1[i] != arr2[i]) {
+            if(arr1[i] > arr2[i]) return 1;
+            else return -1;
+        }
+    }
+    return 0;
+}
+
 int main() {
-    size_t arrLen = 4;
-    int array[arrLen];
-    scanArr(array, arrLen);
-    printArr(array, arrLen);
-    revertArr(array, arrLen);
-    printArr(array, arrLen);
-    maxInArr(array, arrLen);
-    printf("%d\n", findInArr(array, arrLen, 5));
+//    size_t arrLen = 4;
+//    int array[arrLen];
+//    scanArr(array, arrLen);
+//    printArr(array, arrLen);
+//    revertArr(array, arrLen);
+//    printArr(array, arrLen);
+//    maxInArr(array, arrLen);
+//    printf("%d\n", findInArr(array, arrLen, 5));
+//    extractDigits(array, arrLen, 4321);
+    int array1[] = {1};
+    int array2[] = {1};
+    printf("%d", compareArrays(array1, array2, 1, 1));
     return 0;
 }

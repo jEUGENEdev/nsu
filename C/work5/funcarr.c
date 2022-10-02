@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <inttypes.h>
-#include <stdlib.h>
 
 void scanArr(int* arr, size_t arrSize) {
     for(size_t i = 0; i < arrSize; i++) {
@@ -66,21 +64,5 @@ int compareArrays(int* arr1, int* arr2, size_t size1, size_t size2) {
             else return -1;
         }
     }
-    return 0;
-}
-
-int main() {
-//    size_t arrLen = 4;
-//    int array[arrLen];
-//    scanArr(array, arrLen);
-//    printArr(array, arrLen);
-//    revertArr(array, arrLen);
-//    printArr(array, arrLen);
-//    maxInArr(array, arrLen);
-//    printf("%d\n", findInArr(array, arrLen, 5));
-//    extractDigits(array, arrLen, 4321);
-//    int array1[] = {1};
-//    int array2[] = {1};
-//    printf("%d", compareArrays(array1, array2, 1, 1));
     return 0;
 }

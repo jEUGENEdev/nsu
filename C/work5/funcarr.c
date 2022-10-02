@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <inttypes.h>
+#include <stdlib.h>
 
 void scanArr(int* arr, size_t arrSize) {
     for(size_t i = 0; i < arrSize; i++) {

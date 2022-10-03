@@ -33,7 +33,8 @@ void task2() {
     int n = 1;
     while(n != 0) {
         scanf("%d", &n);
-        int* arr = (int*) malloc(sizeof(int) * ++size);
+        int* arr = malloc(sizeof(int) * ++size);
+        mallocNotNull(arr);
         for(size_t i = 0; i < (size - 1); i++) {
             arr[i] = array[i];
         }
@@ -42,6 +43,7 @@ void task2() {
         array[size - 1] = n;
     }
     printArr(array, size);
+    free(array);
 }
 
 int main() {

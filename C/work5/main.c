@@ -57,17 +57,33 @@ void extractDigits(int* arr, size_t arrSize, int x) {
     printArr(cp, arrSize);
 }
 
+//int compareArrays(int* arr1, int* arr2, size_t size1, size_t size2) {
+//    if(size1 < size2) return -1;
+//    else if(size1 > size2) return 1;
+//    for(size_t i = 0; i < size1; i++) {
+//        if(arr1[i] != arr2[i]) {
+//            if(arr1[i] > arr2[i]) return 1;
+//            else return -1;
+//        }
+//    }
+//    return 0;
+//}
+
 int compareArrays(int* arr1, int* arr2, size_t size1, size_t size2) {
-    if(size1 < size2) return -1;
-    else if(size1 > size2) return 1;
-    for(size_t i = 0; i < size1; i++) {
-        if(arr1[i] != arr2[i]) {
-            if(arr1[i] > arr2[i]) return 1;
-            else return -1;
+    size_t min = size1 < size2 ? size1 : size2;
+    for(size_t i = 0; i < min; i++) {
+        if(arr1[i] > arr2[i]) {
+            return 1;
+        }
+        else if(arr1[i] < arr2[i]) {
+            return -1;
         }
     }
-    return 0;
+    if(size1 == size2) return 0;
+    return size1 > size2 ? 1 : -1;
 }
+
+
 
 int main() {
 //    size_t arrLen = 4;
@@ -79,8 +95,14 @@ int main() {
 //    maxInArr(array, arrLen);
 //    printf("%d\n", findInArr(array, arrLen, 5));
 //    extractDigits(array, arrLen, 4321);
-//    int array1[] = {1};
-//    int array2[] = {1};
-//    printf("%d", compareArrays(array1, array2, 1, 1));
+
+    int array1[] = {1}, array2[] = {1};
+    int arr1[] = {3, 2}, arr2[] = {1, 2, 3};
+    int a1[] = {1, 2, 3, 4, 5}, a2[] = {1, 2, 3};
+    printf("%d\n", compareArrays(array1, array2, 1, 1));
+    printf("%d\n", compareArrays(arr2, arr1, 1, 1));
+    printf("%d\n", compareArrays(arr1, arr2, 2, 3));
+    printf("%d\n", compareArrays(a1, a2, 5, 3));
+    printf("%d", compareArrays(a2, a1, 3, 5));
     return 0;
 }

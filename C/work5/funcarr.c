@@ -9,6 +9,16 @@ void notNull(int* a) {
     }
 }
 
+//// Removes an element from the array by its index
+void delete(int* arr, size_t index, size_t size) {
+    if(index < 0 || index >= size) return;
+    for(size_t i = index; i < size - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+    realloc(arr, sizeof(int) * (size - 1));
+    notNull(arr);
+}
+
 int* fastDymArrInit(int* stackArr, size_t size) {
     int* a = malloc(sizeof(int) * size);
     for(size_t i = 0; i < size; i++) {

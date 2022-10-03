@@ -2,6 +2,13 @@
 #include <inttypes.h>
 #include <stdlib.h>
 
+void notNull(int* a) {
+    if(a == NULL) {
+        printf("OutOfMemory");
+        exit(1);
+    }
+}
+
 void scanArr(int* arr, size_t arrSize) {
     for(size_t i = 0; i < arrSize; i++) {
         scanf("%d", &arr[i]);

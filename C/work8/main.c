@@ -12,11 +12,37 @@ void concat(int* arr1, int* arr2, size_t size1, size_t size2, int** newArr, size
     *newSize = size1 + size2;
 }
 
+//// Is the sub array a subarray of the arr array
+size_t findSubArr(int* arr, int* sub, size_t size1, size_t size2) {
+    if(size2 > size1) return -1;
+    if(size1 == size2) return 0;
+    char check = 0;
+    for(size_t i = 0; i < size1 - size2 + 1; i++) {
+        for(size_t j = 0; j < size2; j++) {
+            if(sub[j] != arr[i + j]) {
+                check = 0;
+                break;
+            }
+            else {
+                check = 1;
+            }
+        }
+        if(check) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 int main() {
-    int array1[] = {5, 4, 3, 2, 1, 0}, array2[] = {6, 7, 8, 9};
-    int* concatArr;
-    size_t concatArrSize;
-    concat(fastDymArrInit(array1, 6), fastDymArrInit(array2, 4), 6, 4, &concatArr, &concatArrSize);
-    printArr(concatArr, concatArrSize);
+    int array1[] = {5, 4, 3, 2, 1, 0}, array2[] = {5, 4, 3, 2, 1, 0};
+//    int* concatArr;
+//    size_t concatArrSize;
+//    concat(fastDymArrInit(array1, 6), fastDymArrInit(array2, 4), 6, 4, &concatArr, &concatArrSize);
+//    printArr(concatArr, concatArrSize);
+
+//    printf("%d", (int) findSubArr(fastDymArrInit(array1, 6), fastDymArrInit(array2, 6), 6, 6));
+
+
     return 0;
 }

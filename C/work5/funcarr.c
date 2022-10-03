@@ -9,6 +9,14 @@ void notNull(int* a) {
     }
 }
 
+int* fastDymArrInit(int* stackArr, size_t size) {
+    int* a = malloc(sizeof(int) * size);
+    for(size_t i = 0; i < size; i++) {
+        a[i] = stackArr[i];
+    }
+    return a;
+}
+
 void scanArr(int* arr, size_t arrSize) {
     for(size_t i = 0; i < arrSize; i++) {
         scanf("%d", &arr[i]);

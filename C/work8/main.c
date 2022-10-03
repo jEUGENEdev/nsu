@@ -13,6 +13,6 @@ int* concat(int* arr1, int* arr2, size_t size1, size_t size2) {
 
 int main() {
     int array1[] = {5, 4, 3, 2, 1, 0}, array2[] = {6, 7, 8, 9};
-    printArr(concat(array1, array2, 6, 4), 10);
+    printArr(concat(fastDymArrInit(array1, 6), fastDymArrInit(array2, 4), 6, 4), 10);
     return 0;
 }

@@ -20,34 +20,28 @@ void task1() {
     free(b);
 }
 
-void copy(int* arr, int* cp, size_t size) {
-    for(size_t i = 0; i < size; i++) {
-        cp[i] = arr[i];
+void mallocNotNull(int* a) {
+    if(a == NULL) {
+        printf("OutOfMemory");
+        exit(1);
     }
-}
-
-// Allocates a little bit of memory
-void pickUp(int* arr, size_t size) {
-    int* g = malloc(sizeof(int) * (size - 1));
-    copy(arr, g, size - 1);
-    free(arr);
-    arr = malloc(sizeof(int) * size);
-    copy(g, arr, size - 1);
-    free(g);
 }
 
 void task2() {
-    int n;
-    scanf("%d", &n);
+    int* array = NULL;
     size_t size = 0;
-    int* m = malloc(sizeof(int));
+    int n = 1;
     while(n != 0) {
-        size++;
-        pickUp(m, size);
-        m[size - 1] = n;
         scanf("%d", &n);
+        int* arr = (int*) malloc(sizeof(int) * ++size);
+        for(size_t i = 0; i < (size - 1); i++) {
+            arr[i] = array[i];
+        }
+        free(array);
+        array = arr;
+        array[size - 1] = n;
     }
-    printArr(m, size);
+    printArr(array, size);
 }
 
 int main() {

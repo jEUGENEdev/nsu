@@ -46,15 +46,15 @@ void removeSubArr(int* arr, int* remove, size_t size1, size_t size2, size_t* new
 }
 
 // scanArr already exists in funcarr.c
-void arrScan(int* arr, size_t* size, size_t* capacity) {
+int* arrScan(size_t* size, size_t* capacity) {
     int n = -1;
     *size = 1, *capacity = 1;
     scanf("%d", &n);
-    arr = malloc(sizeof(int));
+    int* arr = malloc(sizeof(int));
     arr[0] = n;
     while(n != 0) {
         scanf("%d", &n);
-        if(size >= capacity) {
+        if(*size >= *capacity) {
             arr = realloc(arr, sizeof(int) * *size * 2);
             notNull(arr);
             *capacity = *size * 2;
@@ -62,7 +62,7 @@ void arrScan(int* arr, size_t* size, size_t* capacity) {
         *size = *size + 1;
         arr[*size - 1] = n;
     }
-    printf("%d\n", arr[0]);
+    return arr;
 }
 
 int main() {
@@ -81,9 +81,8 @@ int main() {
 //    printf("%d\n", (int) newSize);
 //    printArr(arr, newSize);
 
-    int* arr;
     size_t size, capacity;
-    arrScan(arr, &size, &capacity);
-    printf("%d / %d", (int) size, (int) capacity);
+    int* arr = arrScan(&size, &capacity);
+    printf("%d / %d\n", (int) size, (int) capacity);
     printArr(arr, size);
 }

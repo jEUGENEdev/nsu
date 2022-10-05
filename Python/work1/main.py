@@ -22,15 +22,15 @@ def my_zip(list1: list, list2: list):
     return res
 
 
-print("[1, 2, 3], ['a', 'b'] -> [(1, 'a'), (2, 'b')]", my_zip([1, 2, 3], ['a', 'b']) == [(1, 'a'), (2, 'b')])
-print("[30, 1, 2, 3], ['a', 'b', 'x', 'c'] -> [(30, 'a'), (1, 'b'), (2, 'x'), (3, 'c')]",
-      my_zip([30, 1, 2, 3], ['a', 'b', 'x', 'c']) == [(30, 'a'), (1, 'b'), (2, 'x'), (3, 'c')])
+# print("[1, 2, 3], ['a', 'b'] -> [(1, 'a'), (2, 'b')]", my_zip([1, 2, 3], ['a', 'b']) == [(1, 'a'), (2, 'b')])
+# print("[30, 1, 2, 3], ['a', 'b', 'x', 'c'] -> [(30, 'a'), (1, 'b'), (2, 'x'), (3, 'c')]",
+#       my_zip([30, 1, 2, 3], ['a', 'b', 'x', 'c']) == [(30, 'a'), (1, 'b'), (2, 'x'), (3, 'c')])
 
 
 # TASK3
 # massive1 | massive2 | massive3
 def my_matrix_builder(s: str):
-    return list(map(lambda x: list(y for y in map(lambda l: int(l), x.split())), s.split('|')))
+    return list(map(lambda x: list(y for y in map(lambda l: float(l), x.split())), s.split('|')))
 
 
-# print(my_matrix_builder('1 2 | 3 4')[0][1])
+print(my_matrix_builder('1 2 | 3 4')[0][1])

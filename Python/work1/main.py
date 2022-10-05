@@ -14,6 +14,7 @@ def my_bin(n):
 # print("-123 -> 3", my_bin(-123) == 3)  # True
 
 
+# TASK2
 def my_zip(list1: list, list2: list):
     res = []
     for i in range(min(len(list1), len(list2))):
@@ -26,6 +27,7 @@ print("[30, 1, 2, 3], ['a', 'b', 'x', 'c'] -> [(30, 'a'), (1, 'b'), (2, 'x'), (3
       my_zip([30, 1, 2, 3], ['a', 'b', 'x', 'c']) == [(30, 'a'), (1, 'b'), (2, 'x'), (3, 'c')])
 
 
+# TASK3
 # massive1 | massive2 | massive3
 def my_matrix_builder(s: str):
     return list(map(lambda x: list(y for y in map(lambda l: int(l), x.split())), s.split('|')))

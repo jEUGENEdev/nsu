@@ -65,6 +65,10 @@ int* arrScan(size_t* size, size_t* capacity) {
     return arr;
 }
 
+void pascalTriangle(int count) {
+    int** triangle = malloc(sizeof(int*) * count);
+}
+
 int main() {
 //    int array1[] = {0, 1, 2, 3, 1, 2, 4}, array2[] = {1, 2};
 //    int* concatArr;
@@ -81,8 +85,10 @@ int main() {
 //    printf("%d\n", (int) newSize);
 //    printArr(arr, newSize);
 
-    size_t size, capacity;
-    int* arr = arrScan(&size, &capacity);
-    printf("%d / %d\n", (int) size, (int) capacity);
-    printArr(arr, size);
+//    size_t size, capacity;
+//    int* arr = arrScan(&size, &capacity);
+//    printf("%d / %d\n", (int) size, (int) capacity);
+//    printArr(arr, size);
+
+
 }

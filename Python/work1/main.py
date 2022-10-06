@@ -30,7 +30,7 @@ def my_zip(list1: list, list2: list):
 # TASK3
 # massive1 | massive2 | massive3
 def my_matrix_builder(s: str):
-    return [map(lambda x: [y for y in map(float, x.split())], s.split('|'))]
+    return list(map(lambda x: [y for y in map(float, x.split())], s.split('|')))
 
 
 print(my_matrix_builder('1 2 | 3 4')[0][1])

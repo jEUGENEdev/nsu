@@ -149,7 +149,7 @@ int main() {
 //    printf("%d / %d\n", (int) size, (int) capacity);
 //    printArr(arr, size);
 
-    int **triangle, count = 14;
+    int **triangle, count = 6;
     buildTriangle(count, &triangle);
     printTriangle(triangle, (size_t) count);
     buildPascalTriangle(count, triangle);

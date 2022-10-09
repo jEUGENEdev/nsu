@@ -1,17 +1,15 @@
 # TASK1
 def my_bin(n):
-    sign = 1 if n > -1 else -1
-    count = 1 if sign == -1 else 0
-    n = n if sign == 1 else abs(n) - 1
-    while n > 0:
-        count += n % 2 if sign == 1 else n % 2 ^ 1
-        n //= 2
+    count = 1 if n < 0 else 0
+    while n not in [0, -1]:
+        count += n & 1
+        n >>= 1
     return count
 
 
-# print("7 -> 3", my_bin(7) == 3)  # True
-# print("10 -> 2", my_bin(10) == 2)  # True
-# print("-123 -> 3", my_bin(-123) == 3)  # True
+print("7 -> 3", my_bin(7) == 3)  # True
+print("10 -> 2", my_bin(10) == 2)  # True
+print("-123 -> 3", my_bin(-123) == 3, my_bin(-123))  # True
 
 
 # TASK2
@@ -33,4 +31,4 @@ def my_matrix_builder(s: str):
     return list(map(lambda x: [y for y in map(float, x.split())], s.split('|')))
 
 
-print(my_matrix_builder('1 2 | 3 4')[0][1])
+# print(my_matrix_builder('1 2 | 3 4')[0][1])

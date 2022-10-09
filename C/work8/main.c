@@ -65,8 +65,67 @@ int* arrScan(size_t* size, size_t* capacity) {
     return arr;
 }
 
-void pascalTriangle(int count) {
-    int** triangle = malloc(sizeof(int*) * count);
+void add(int** arr, int x, size_t* size, size_t* capacity) {
+    if(*size == 0) {
+        free(*arr);
+        *arr = realloc(*arr, sizeof(int) * 2);
+        notNull(*arr);
+        *capacity = 2;
+        *arr[*size] = x;
+        *size = 1;
+        return;
+    }
+    else if(*size == *capacity) {
+        *capacity = *size * 2;
+        *arr = realloc(*arr, sizeof(int) * *capacity);
+        notNull(*arr);
+    }
+    *size = *size + 1;
+    (*arr)[*size - 1] = x;
+}
+
+void printTriangle(int** matrix, size_t size) {
+    for(size_t i = 0; i < size; i++) {
+        for(size_t j = 0; j < i + 1; j++) {
+            printf("%-5d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
+void buildTriangle(int count, int*** arr) {
+    int** matrix = malloc(sizeof(int) * (count * count / 2));
+    notNull(*matrix);
+    for(size_t i = 0; i < count; i++) {
+        int* line = calloc(i + 1, sizeof(int));
+        notNull(line);
+        matrix[i] = line;
+    }
+    *arr = matrix;
+}
+
+void buildPascalTriangle(int count, int** matrix) {
+    if(count < 3) {
+        matrix[0][0] = 1;
+        if(count == 2) {
+            matrix[1][0] = 1;
+            matrix[1][1] = 1;
+        }
+        return;
+    }
+    else {
+        matrix[0][0] = 1;
+        matrix[1][0] = 1;
+        matrix[1][1] = 1;
+        for(size_t i = 2; i < count; i++) {
+            matrix[i][0] = 1;
+            matrix[i][i] = 1;
+            for(size_t j = 1; j < i + 1; j++) {
+                matrix[i][j] = matrix[i - 1][j - 1] + matrix[i - 1][j];
+            }
+        }
+    }
 }
 
 int main() {
@@ -90,5 +149,9 @@ int main() {
 //    printf("%d / %d\n", (int) size, (int) capacity);
 //    printArr(arr, size);
 
-
+    int **triangle, count = 14;
+    buildTriangle(count, &triangle);
+    printTriangle(triangle, (size_t) count);
+    buildPascalTriangle(count, triangle);
+    printTriangle(triangle, (size_t) count);
 }

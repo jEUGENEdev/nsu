@@ -95,10 +95,10 @@ void printTriangle(int** matrix, size_t size) {
 }
 
 void buildTriangle(int count, int*** arr) {
-    int** matrix = malloc(sizeof(int) * (count * count / 2));
+    int** matrix = malloc(sizeof(int**) * count);
     notNull(*matrix);
     for(size_t i = 0; i < count; i++) {
-        int* line = calloc(i + 1, sizeof(int));
+        int* line = calloc(i + 1, sizeof(int*));
         notNull(line);
         matrix[i] = line;
     }
@@ -149,7 +149,7 @@ int main() {
 //    printf("%d / %d\n", (int) size, (int) capacity);
 //    printArr(arr, size);
 
-    int **triangle, count = 6;
+    int **triangle, count = 10;
     buildTriangle(count, &triangle);
     printTriangle(triangle, (size_t) count);
     buildPascalTriangle(count, triangle);

@@ -4,9 +4,9 @@ import doctest
 def sub_dict(_dict: dict, value):
     """Returns all keys where value = 'value'"""
     res = []
-    for entry in _dict.items():
-        if entry[1] == value:
-            res += [entry[0]]
+    for key, val in _dict.items():
+        if val == value:
+            res += [key]
     return res
 
 
@@ -35,7 +35,7 @@ def number_system(x, y):
 
 def specialize(func, *args, **kwargs):
     def f(*_args, **_kwargs):
-        return func(*args, *_args, **{**kwargs, **_kwargs})
+        return func(*args, *_args, **kwargs, **_kwargs)
     return f
 
 

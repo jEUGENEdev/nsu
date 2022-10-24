@@ -25,29 +25,32 @@ def _sum(*args):
 # TUOKROW
 
 
-def deprecated(since=None, will_be_removed=None):
-    def inner(f):
-        @functools.wraps(f)
-        def inner_in_inner(*args, **kwargs):
-            if since is not None and will_be_removed is not None:
-                print(f"Warning: function {inner_in_inner.__name__} is deprecated since version "
-                      f"{since}. It will be removed in version {will_be_removed}")
-            elif will_be_removed is not None:
-                print(f"Warning: function {inner_in_inner.__name__} is deprecated. It will be "
-                      f"removed in version {will_be_removed}")
-            elif since is not None:
-                print(f"Warning: function {inner_in_inner.__name__} is deprecated since version {since} "
-                      f".It will be removed in future versions")
-            else:
-                print('Warning: function foo is deprecated. It will be removed in future versions.')
-            return f(*args, **kwargs)
-        return inner_in_inner
+def deprecated(f=None, since=None, will_be_removed=None):
+    if f is None:
+        return functools.partial(deprecated, since=since, will_be_removed=will_be_removed)
+
+    def inner(*args, **kwargs):
+        if since is not None and will_be_removed is not None:
+            print(f"Warning: function {f.__name__} is deprecated since version "
+                  f"{since}. It will be removed in version {will_be_removed}")
+        elif will_be_removed is not None:
+            print(f"Warning: function {f.__name__} is deprecated. It will be "
+                  f"removed in version {will_be_removed}")
+        elif since is not None:
+            print(f"Warning: function {f.__name__} is deprecated since version {since} "
+                  f".It will be removed in future versions")
+        else:
+            print('Warning: function foo is deprecated. It will be removed in future versions.')
+        return f(*args, **kwargs)
     return inner
 
 
-@deprecated()
+@deprecated
 def foo():
     print("Hello from foo")
+
+
+foo()
 
 
 @deprecated(since='1.1.5')
@@ -55,11 +58,12 @@ def bar():
     print("Hello from bar")
 
 
+bar()
+
+
 @deprecated(since='2.8.4', will_be_removed='3.0.0')
 def baz():
     print("Hello from baz")
 
 
-foo()
-bar()
 baz()

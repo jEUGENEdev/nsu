@@ -1,25 +1,25 @@
-def expand_element_list(_list, cur_depth, depth, save: list):
-    if cur_depth >= depth:
-        return _list
-    cur_list = []
+def expand_element_list(_list, cur_depth, depth, res, not_all=1):
+    if (cur_depth >= depth) and not_all:
+        res += _list
+        return res
     for el in _list:
         if isinstance(el, list):
-            cur_list += [a for a in el]
-            save += cur_list
+            expand_element_list(el, cur_depth + 1, depth, res, not_all)
         else:
-            cur_list += [el]
-    expand_element_list(cur_list, cur_depth + 1, depth, save)
+            res += [el]
+    return res
 
 
-def expand_list(_list, depth):
-    epn_list = []
-    a = []
-    for el in _list:
-        if isinstance(el, list):
-            epn_list += [expand_element_list(el, 1, depth, a)]
-        else:
-            epn_list += [el]
-    return a
+def flatten(_list):
+    return expand_element_list(_list, 0, 0, [], 0)
+
+# And where is polymorphism?
 
 
-print(expand_list([1, 2, [4, 5], [6, [7]], 8], 10))
+def flatten1(_list, depth):
+    return expand_element_list(_list, 1, depth, [])
+
+
+print(flatten([1, 2, [4, 5], [6, [7]], 8]))
+print(flatten1([1, 2, [[[[[[[[4]]]]]]], 5], [6, [7]], 8], 5))
+print(flatten([1, 2, [[[[[[[[4]]]]]]], 5], [6, [7]], 8]))

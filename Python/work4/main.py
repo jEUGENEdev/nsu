@@ -40,7 +40,7 @@ def deprecated(f=None, since=None, will_be_removed=None):
             print(f"Warning: function {f.__name__} is deprecated since version {since} "
                   f".It will be removed in future versions")
         else:
-            print('Warning: function foo is deprecated. It will be removed in future versions.')
+            print(f'Warning: function {f.__name__} is deprecated. It will be removed in future versions.')
         return f(*args, **kwargs)
     return inner
 

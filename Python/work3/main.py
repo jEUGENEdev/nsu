@@ -1,4 +1,4 @@
-def expand_element_list(_list, cur_depth, depth, res, not_all=1):
+def expand_element_list(_list, cur_depth, depth, res, not_all=True):
     if (cur_depth >= depth) and not_all:
         res += _list
         return res
@@ -6,12 +6,12 @@ def expand_element_list(_list, cur_depth, depth, res, not_all=1):
         if isinstance(el, list):
             expand_element_list(el, cur_depth + 1, depth, res, not_all)
         else:
-            res += [el]
+            res.append(el)
     return res
 
 
 def flatten(_list):
-    return expand_element_list(_list, 0, 0, [], 0)
+    return expand_element_list(_list, 0, 0, [], False)
 
 # And where is polymorphism?
 

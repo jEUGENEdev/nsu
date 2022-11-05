@@ -34,3 +34,8 @@ def format_table(benchmarks, algos, results):
 format_table(['best_case', 'the worst case'],
              ['quick sort', 'merge sort', 'bubble sort'],
              [[1.23, 1.56, 2.0], [3.3, 2.9, 3.9]])
+print('\n')
+format_table(['universal code', 'code is 10 years old', 'chinese code', 'code written by code'],
+             ['adding two numbers', 'subtracting numbers', 'multiplication of numbers', 'number module'],
+             [[0.01, 0.01, 0.01, 0.01], [2.12345678911111, 1.42, 1.6346, 1.0], [0.0, 0.0, 0.0, 0.0],
+              [0.0000000000000001, 0.0123, 0.123, 414245345364524252242342342342423445345.23]])

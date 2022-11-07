@@ -7,3 +7,8 @@ void nullCheck(void* notNull) {
         exit(1);
     }
 }
+
+void interrupt() {
+    printf("ProgramExecutingException");
+    exit(1);
+}

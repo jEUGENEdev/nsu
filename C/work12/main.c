@@ -3,8 +3,7 @@
 #include "string.c"
 
 int main() {
-    String a = newString("Hello World!");
-    String b = stringCopy(a);
-    toString(b);
+    String a = stringOf("Hello World!");
+    printf("%zu", stringIndexOf(a, 'l'));
     return 0;
 }

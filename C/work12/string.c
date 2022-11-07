@@ -7,7 +7,7 @@ typedef struct {
     size_t capacity;
 } String;
 
-String newString(const char* str) {
+String stringOf(const char* str) {
     String string;
     size_t i = strlen(str);
     string.length = i;
@@ -45,4 +45,18 @@ String stringCopy(String src) {
     str.length = 0;
     stringConcat(&str, src);
     return str;
+}
+
+char stringCharAt(String src, size_t index) {
+    if(index >= src.length) interrupt();
+    return src.str[index];
+}
+
+size_t stringIndexOf(String src, char ch) {
+    for(size_t i = 0; i < src.length; i++) {
+        if(src.str[i] == ch) {
+            return i;
+        }
+    }
+    return -1;
 }

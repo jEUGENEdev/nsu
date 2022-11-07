@@ -27,7 +27,7 @@ void toString(String str) {
     printf("\n");
 }
 
-void concat(String* str, String src) {
+void stringConcat(String* str, String src) {
     size_t newLen = str->length + src.length;
     if(str->capacity < newLen) {
         str->str = realloc(str->str, sizeof(char) * (newLen * 2 + 1));
@@ -43,6 +43,6 @@ void concat(String* str, String src) {
 String stringCopy(String src) {
     String str;
     str.length = 0;
-    concat(&str, src);
+    stringConcat(&str, src);
     return str;
 }

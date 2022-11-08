@@ -1,5 +1,6 @@
 #include "string.c"
 #include "stringArray.c"
+#include <stdio.h>
 
 int main() {
     StringArray* lines = stringArrayOf();
@@ -19,12 +20,5 @@ int main() {
         strArrAdd(lines, line);
     }
     arrayToString(lines);
-
-//    StringArray* b = stringArrayOf();
-//    String* a = stringOf("Hello");
-//    for(int i = 0; i < 10000; i++) {
-//        strArrAdd(b, a);
-//    }
-//    arrayToString(b);
     return 0;
 }

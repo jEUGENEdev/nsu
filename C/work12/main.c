@@ -1,9 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "string.c"
+#include "stringArray.c"
 
 int main() {
-    String a = stringOf("Hello World!");
-    printf("%zu", stringIndexOf(a, 'l'));
+    StringArray array = stringArrayOf();
+    arrayToString(array);
     return 0;
 }

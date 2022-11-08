@@ -4,10 +4,10 @@ typedef struct {
     size_t capacity;
 } StringArray;
 
-StringArray stringArrayOf() {
-    StringArray arr;
-    arr.length = 0;
-    arr.capacity = 0;
+StringArray* stringArrayOf() {
+    StringArray* arr = malloc(sizeof(StringArray));
+    arr->length = 0;
+    arr->capacity = 0;
     return arr;
 }
 

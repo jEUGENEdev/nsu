@@ -73,9 +73,9 @@ size_t stringIndexOf(String src, char ch) {
 }
 
 String stringClone(String str) {
-    String* src;
-    stringConcat((String *) &src, str);
-    return *src;
+    String src = stringOf("");
+    stringConcat(&src, str);
+    return src;
 }
 
 void stringFree(String str) {

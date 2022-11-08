@@ -7,22 +7,22 @@ typedef struct {
     size_t capacity;
 } String;
 
-String stringOf(const char* str) {
-    String string;
+String* stringOf(const char* str) {
+    String* string = malloc(sizeof(String));
     size_t i = strlen(str);
-    string.length = i;
-    string.str = malloc(sizeof(char) * (i * 2 + 1));
-    nullCheck(string.str);
-    string.capacity = i * 2 + 1;
+    string->length = i;
+    string->str = malloc(sizeof(char) * (i * 2 + 1));
+    nullCheck(string->str);
+    string->capacity = i * 2 + 1;
     for(size_t j = 0; j <= i; j++) {
-        string.str[j] = str[j];
+        string->str[j] = str[j];
     }
     return string;
 }
 
-void toString(String str) {
-    for(size_t i = 0; i < str.length; i++) {
-        printf("%c", str.str[i]);
+void toString(String* str) {
+    for(size_t i = 0; i < str->length; i++) {
+        printf("%c", str->str[i]);
     }
     printf("\n");
 }
@@ -43,7 +43,7 @@ void stringConcat(String* str, String src) {
 void stringAddChar(String* str, char ch) {
     size_t newLen = str->length + 1;
     if(str->capacity < newLen) {
-        str->str = realloc(str->str, sizeof(char) * (newLen * 2 + 1));
+        str->str = realloc(str->str, sizeof(char*) * (newLen * 2 + 1));
         nullCheck(str->str);
         str->capacity = newLen * 2 + 1;
     }

@@ -12,3 +12,10 @@ void interrupt() {
     printf("ProgramExecutingException");
     exit(1);
 }
+
+void fileNullCheck(FILE* file) {
+    if(file == NULL) {
+        printf("OpeningStreamFailedException");
+        exit(1);
+    }
+}

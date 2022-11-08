@@ -71,3 +71,7 @@ size_t stringIndexOf(String src, char ch) {
     }
     return -1;
 }
+
+void stringFree(String str) {
+    free(str.str);
+}

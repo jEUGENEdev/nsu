@@ -43,7 +43,7 @@ void stringConcat(String* str, String src) {
 void stringAddChar(String* str, char ch) {
     size_t newLen = str->length + 1;
     if(str->capacity < newLen) {
-        str->str = realloc(str->str, sizeof(char*) * (newLen * 2 + 1));
+        str->str = realloc(str->str, sizeof(char) * (newLen * 2 + 1));
         nullCheck(str->str);
         str->capacity = newLen * 2 + 1;
     }

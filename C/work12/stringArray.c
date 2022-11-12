@@ -21,8 +21,8 @@ void strArrAdd(StringArray* arr, String* el) {
     arr->length += 1;
 }
 
-void arrayToString(StringArray* arr) {
+void stringArrayWriteLine(StringArray* arr) {
     for(size_t i = 0; i < arr->length; i++) {
-        toString(arr->arr[i]);
+        stringWriteLine(arr->arr[i]);
     }
 }

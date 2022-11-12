@@ -7,32 +7,25 @@ typedef struct {
     size_t capacity;
 } String;
 
-String* stringOf(const char* str) {
-    String* string = malloc(sizeof(String));
-    size_t i = strlen(str);
-    string->length = i;
-    string->str = malloc(sizeof(char) * (i * 2 + 1));
-    nullCheck(string->str);
-    string->capacity = i * 2 + 1;
-    for(size_t j = 0; j <= i; j++) {
-        string->str[j] = str[j];
-    }
+String* stringOf(char* str) {
+    String* string = nullCheck(malloc(sizeof(String)));
+    string->length = strlen(str);
+    string->capacity = string->length * 2 + 1;
+    string->str = nullCheck(malloc(sizeof(char) * string->capacity));
+    strcpy(string->str, str);
     return string;
 }
 
-void toString(String* str) {
-    for(size_t i = 0; i < str->length; i++) {
-        printf("%c", str->str[i]);
-    }
+void stringWriteLine(String* str) {
+    printf("%s", str->str);
     printf("\n");
 }
 
 void stringConcat(String* str, String src) {
     size_t newLen = str->length + src.length;
     if(str->capacity < newLen) {
-        str->str = realloc(str->str, sizeof(char) * (newLen * 2 + 1));
-        nullCheck(str->str);
         str->capacity = newLen * 2 + 1;
+        str->str = nullCheck(realloc(str->str, sizeof(char) * str->capacity));
     }
     for(size_t i = 0; i <= src.length; i++) {
         str->str[i + str->length] = src.str[i];
@@ -41,20 +34,17 @@ void stringConcat(String* str, String src) {
 }
 
 void stringAddChar(String* str, char ch) {
-    size_t newLen = str->length + 1;
-    if(str->capacity < newLen) {
-        str->str = realloc(str->str, sizeof(char) * (newLen * 2 + 1));
-        nullCheck(str->str);
-        str->capacity = newLen * 2 + 1;
+    if(str->capacity < str->length + 1) {
+        str->capacity = (str->length + 1) * 2 + 1;
+        str->str = nullCheck(realloc(str->str, sizeof(char) * str->capacity));
     }
-    str->str[str->length] = ch;
-    str->length += 1;
+    str->str[str->length++] = ch;
+    str->str[str->length] = '\0';
 }
 
-String stringCopy(String src) {
-    String str;
-    str.length = 0;
-    stringConcat(&str, src);
+String* stringCopy(String src) {
+    String* str = stringOf("");
+    strcpy(str->str, src.str);
     return str;
 }
 

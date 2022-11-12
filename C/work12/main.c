@@ -19,6 +19,6 @@ int main() {
     if(line->length != 0) {
         strArrAdd(lines, line);
     }
-    arrayToString(lines);
+    stringArrayWriteLine(lines);
     return 0;
 }

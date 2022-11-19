@@ -3,4 +3,4 @@ project(work12 C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(work12 main.c)
+add_executable(work12 main.c string.h utils.h stringArray.h)

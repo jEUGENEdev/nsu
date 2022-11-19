@@ -1,11 +1,11 @@
-#include "string.c"
-#include "stringArray.c"
+#include "string.h"
+#include "stringArray.h"
 #include <stdio.h>
 
-int main() {
+StringArray* readFileLines(const char* pathFile) {
     StringArray* lines = stringArrayOf();
-    char* PATH = "C:/Users/genya/Desktop/file.txt";
-    FILE* file = fopen(PATH, "r");
+    FILE* file = fopen(pathFile, "r");
+    fileNullCheck(file);
     int ch;
     String* line = stringOf("");
     while((ch = getc(file)) != EOF) {
@@ -19,6 +19,14 @@ int main() {
     if(line->length != 0) {
         strArrAdd(lines, line);
     }
+    return lines;
+}
+
+int main(int argc, char *argv[]) {
+    if(argc < 1) {
+        interrupt();
+    }
+    StringArray* lines = readFileLines(argv[1]);
     stringArrayWriteLine(lines);
     return 0;
 }

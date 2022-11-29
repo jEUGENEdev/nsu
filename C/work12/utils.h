@@ -12,7 +12,7 @@ typedef struct {        \
     T* data;            \
     size_t length;      \
     size_t capacity;    \
-} ##T;
+} Container##T;
 
 void* nullCheck(void* notNull) {
     if(notNull == NULL) {

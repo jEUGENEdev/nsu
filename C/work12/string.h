@@ -13,6 +13,8 @@ typedef struct {
     size_t capacity;
 } String;
 
+CONTAINER(String)
+
 String* stringOf(char* str) {
     String* string = nullCheck(malloc(sizeof(String)));
     string->length = strlen(str);

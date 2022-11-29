@@ -13,6 +13,8 @@ typedef struct {
     size_t capacity;
 } StringArray;
 
+
+
 StringArray* stringArrayOf() {
     StringArray* arr = malloc(sizeof(StringArray));
     arr->arr = malloc(sizeof(String*));

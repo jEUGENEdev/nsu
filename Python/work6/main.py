@@ -12,10 +12,10 @@ class LRUCache:
         if len(self.data) + 1 <= self.capacity:
             self.__put(key, value)
         else:
-            min_key = self.timestamps_queue[0][0]
-            del self.timestamps_queue[0]
+            min_key = self.timestamps_queue.pop(0)[0]
             del self.data[min_key]
             self.__put(key, value)
 
     def get(self, key):
+        self.timestamps_queue.append(self.timestamps_queue.pop(0))
         return self.data[key]

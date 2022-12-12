@@ -35,4 +35,3 @@ def f(n):
 
 
 f(10)
-print(lru)

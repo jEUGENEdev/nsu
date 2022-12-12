@@ -1,13 +1,11 @@
 def cycle(__iterable, a):
-    res = [obj for obj in __iterable]
     it = iter(__iterable)
     while (a := a - 1) >= 0:
         try:
-            res.append(next(it))
+            yield next(it)
         except StopIteration:
             it = iter(__iterable)
-            res.append(next(it))
-    return res
+            yield next(it)
 
 
-print(cycle([1, 2, 3], 10))
+print(list(cycle([1, 2, 3], 10)))

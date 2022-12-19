@@ -18,7 +18,9 @@ class LRUCache:
             self.__put(key, value)
 
     def get(self, key):
-        del self.timestamps_queue[self.timestamps_queue.index(key)]
+        index = self.timestamps_queue.index(key)
+        if index != -1:
+            del self.timestamps_queue[index]
         self.timestamps_queue.append(key)
         # self.timestamps_queue.append(self.timestamps_queue.pop(0))
         return self.data[key]
